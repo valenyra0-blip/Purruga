@@ -126,31 +126,59 @@ async def get_intelligent_response(user_name, user_messages, current_message):
         print(f"Error generating intelligent response: {e}")
         return None
 
-async def get_cat_meme():
-    """Fetch a random cat meme from Reddit via meme API"""
-    subreddits = ["catmemes","cats","CatGifs","blackcats","orangecats","IllegallySmolCats","bigcatgifs","tuckedinkitties","CatsWithJobs","StartledCats","JellybeanToes",
-    "Kittens",
-    "KittyLoaf",
-    "CatsInBusinessAttire",
-    "CatTaps",
-    "CatsAreAssholes",
-    "Meow_IRL"
-    ]
-    url = f"https://meme-api.com/gimme/{random.choice(subreddits)}"
-    
+import aiohttp
+import random
+from aiohttp import ClientTimeout
+
+async def get_any_cat():
+    """Fetch a random cat meme/gif from multiple sources with fallback support"""
+    sources = ["reddit", "randomcat", "cataas", "someapi"]
+
     async with aiohttp.ClientSession() as session:
-        try:
-            async with session.get(url, timeout=ClientTimeout(total=15)) as response:
-                if response.status == 200:
-                    data = await response.json()
-                    # Verify it's an image URL
-                    image_url = data.get("url")
-                    if image_url and any(ext in image_url.lower() for ext in ['.jpg', '.jpeg', '.png', '.gif', '.webp']):
-                        return image_url
-                    return None
-        except Exception as e:
-            print(f"Error fetching cat meme: {e}")
-            return None
+        # Shuffle order so it doesn’t always start with the same source
+        for choice in random.sample(sources, len(sources)):
+            try:
+                if choice == "reddit":
+                    subreddits = [
+                        "catmemes","cats","CatGifs","blackcats","orangecats",
+                        "IllegallySmolCats","bigcatgifs","tuckedinkitties",
+                        "CatsWithJobs","StartledCats","JellybeanToes",
+                        "Kittens","KittyLoaf","CatsInBusinessAttire",
+                        "CatTaps","CatsAreAssholes","Meow_IRL"
+                    ]
+                    url = f"https://meme-api.com/gimme/{random.choice(subreddits)}"
+                    async with session.get(url, timeout=ClientTimeout(total=15)) as response:
+                        if response.status == 200:
+                            data = await response.json()
+                            image_url = data.get("url")
+                            if image_url and any(image_url.lower().endswith(ext) for ext in [".jpg",".jpeg",".png",".gif",".webp"]):
+                                return image_url
+
+                elif choice == "randomcat":
+                    url = "https://aws.random.cat/meow"
+                    async with session.get(url, timeout=ClientTimeout(total=15)) as response:
+                        if response.status == 200:
+                            data = await response.json()
+                            return data.get("file")
+
+                elif choice == "cataas":
+                    url = "https://cataas.com/cat?json=true"
+                    async with session.get(url, timeout=ClientTimeout(total=15)) as response:
+                        if response.status == 200:
+                            data = await response.json()
+                            return "https://cataas.com" + data.get("url")
+
+                elif choice == "someapi":
+                    url = "https://some-random-api.com/img/cat"
+                    async with session.get(url, timeout=ClientTimeout(total=15)) as response:
+                        if response.status == 200:
+                            data = await response.json()
+                            return data.get("link")
+
+            except Exception as e:
+                print(f"[{choice}] failed: {e}")  # Log error and move to next source
+
+    return None  # Only if ALL sources fail
 
 # --- tiny website so deployment services can keep this bot alive ---
 web_app = web.Application()
@@ -366,7 +394,7 @@ async def on_message(message: discord.Message):
     user_name = message.author.display_name
 
     # 1) Keyword triggers - instant meme for cat-related words
-    cat_keywords = ["meow", "purr", "cat", "kitten", "kitty", "feline", "whiskers", "paw", "tail"]
+    cat_keywords = ["meow", "purr", "cat", "kitten", "kitty", "feline", "whiskers", "paw", "tail","@purruga","hello"]
     if any(keyword in content for keyword in cat_keywords):
         meme_url = await get_cat_meme()
         if meme_url:
