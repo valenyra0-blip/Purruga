@@ -131,6 +131,8 @@ import random
 from aiohttp import ClientTimeout
 
 async def get_any_cat():
+    # Alias for consistency
+get_cat_meme = get_any_cat
     """Fetch a random cat meme/gif from multiple sources with fallback support"""
     sources = ["reddit", "randomcat", "cataas", "someapi"]
 
@@ -425,7 +427,6 @@ async def on_message(message: discord.Message):
                     responded = True
                 else:
 # Fallback to personalized response
-import random
 # ------------------------------
 # FUNCTION TO GET RESPONSE
 # ------------------------------
