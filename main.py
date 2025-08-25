@@ -74,6 +74,26 @@ cat_phrases = [
     "That's purrfect! ✨",
     "I'm not kitten around! 😹",
     "*rubs against your leg* 🐱"
+    "Did someone say tuna? 🐟",
+    "I nap, therefore I am. 💤",
+    "Knead more biscuits. 🍞🐾",
+    "The zoomies have begun! 🏃🐈",
+    "Staring into the void… 👀",
+    "Feed me and tell me I’m cute. 😽",
+    "This spot is mine now. 🪑🐱",
+    "Humans are just can openers with legs. 🥫",
+    "Pet me… but only three times. 😼",
+    "Delete your homework? Don’t tempt me. 💻🐾",
+    "I see ghosts. Or maybe it’s just dust. 👻🐈",
+    "If I fits, I sits. 📦",
+    "Respect the floof. ✨🐱",
+    "Consider yourself blessed by my presence. 🙀",
+    "Bring me shrimp, mortal. 🍤😸",
+    "You can’t outstare me, hooman. 👁️🐾",
+    "I’m secretly plotting world domination. 🌍🐱",
+    "Knock knock. Who’s there? Not your glass anymore. 💥",
+    "Meowgic is everywhere. ✨🐾",
+    "Bow before your fluffy overlord. 👑🐈"
 ]
 
 async def get_intelligent_response(user_name, user_messages, current_message):
@@ -108,7 +128,14 @@ async def get_intelligent_response(user_name, user_messages, current_message):
 
 async def get_cat_meme():
     """Fetch a random cat meme from Reddit via meme API"""
-    subreddits = ["catmemes", "cats", "CatGifs", "blackcats", "orangecats", "IllegallySmolCats"]
+    subreddits = ["catmemes","cats","CatGifs","blackcats","orangecats","IllegallySmolCats","bigcatgifs","tuckedinkitties","CatsWithJobs","StartledCats","JellybeanToes",
+    "Kittens",
+    "KittyLoaf",
+    "CatsInBusinessAttire",
+    "CatTaps",
+    "CatsAreAssholes",
+    "Meow_IRL"
+    ]
     url = f"https://meme-api.com/gimme/{random.choice(subreddits)}"
     
     async with aiohttp.ClientSession() as session:
