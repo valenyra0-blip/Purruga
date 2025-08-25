@@ -425,14 +425,261 @@ async def on_message(message: discord.Message):
                     responded = True
                 else:
                     # Fallback to personalized response
-                    personal_responses = [
-                        f"@{user_name}, you're purrfect! 😺",
-                        f"Hey @{user_name}! *headbutts affectionately* 🐾",
-                        f"@{user_name}, stop hogging all the attention! 😹",
-                        f"Paws up, @{user_name}! You're awesome! 🐾",
-                        f"*meows at @{user_name}* Notice me! 🐱",
-                        f"@{user_name}, you deserve all the treats! 🐟"
-                    ]
+                    import random
+
+# ------------------------------
+# SARCASTIC RESPONSES 😏
+# ------------------------------
+sarcastic_responses = [
+    f"Oh wow @{user_name}, did you come up with that all by yourself? 😏",
+    f"Nice one @{user_name}, truly groundbreaking 🙄✨",
+    f"@{user_name}, stop flexing… JK keep flexing 💪😎",
+    f"Congrats @{user_name}, you’ve officially leveled up in sarcasm 😏🎮",
+    f"Oh look, it’s @{user_name}, the human chaos generator 😹🔥",
+    f"Wow @{user_name}, did anyone tell you you’re a legend today? No? Thought so 😏",
+    f"@{user_name}, chill, the spotlight isn’t going anywhere… oh wait, it’s all on you 😹",
+    f"@{user_name}, careful, too much awesomeness might break Discord 🫣",
+    f"@{user_name}, your memes are… suspiciously good 😼",
+    f"@{user_name}, stop being so extra… just kidding, keep it up 😹",
+    f"@{user_name}, you’re basically chaos incarnate 😏🔥",
+    f"Nice try @{user_name}, almost human-level brilliance 😏",
+    f"@{user_name}, I see you’ve mastered the art of attention 🙄✨",
+    f"@{user_name}, absolute icon but low-key savage 😎",
+    f"@{user_name}, did someone order extra chaos? Oh wait, that’s you 😹",
+    f"@{user_name}, legend level: sarcastic af 😏💥",
+    f"@{user_name}, your energy is… chaotic but we stan 😹",
+    f"Oh wow @{user_name}, another epic comment… shocking 🙄",
+    f"@{user_name}, you bring the drama and we’re here for it 😎🔥",
+    f"@{user_name}, the sarcasm is strong with this one 😏",
+    f"@{user_name}, peak human-level chaos achieved 😹",
+    f"@{user_name}, please stop breaking the vibe with your awesomeness 😏",
+    f"@{user_name}, did someone call for iconic energy? Here you are 😹",
+    f"@{user_name}, attention hog certified 😎",
+    f"@{user_name}, the absolute legend who can’t be tamed 😏"
+]
+
+# ------------------------------
+# GEN Z / HYPE RESPONSES 😎✨
+# ------------------------------
+genz_responses = [
+    f"OMG @{user_name}, you’re literally the vibe 😎✨",
+    f"@{user_name}, sending you big brain energy 💡🧠",
+    f"Yo @{user_name}, you just leveled up IRL 🎮✨",
+    f"Sup @{user_name}? You’re basically iconic 😎✨",
+    f"@{user_name}, absolute chaos energy but we love it 😹🔥",
+    f"*throws confetti at @{user_name}* 🎉🎉 You rock!",
+    f"@{user_name}, I stan a legend 🫡💖",
+    f"Hey @{user_name}, keep slaying! 💅✨",
+    f"@{user_name}, you’re a whole mood 😎🌈",
+    f"*high fives @{user_name}* 🖐️ Legendary move!",
+    f"@{user_name}, catch these good vibes only ✌️💫",
+    f"@{user_name}, sending you virtual snacks 🍕🍩 stay awesome!",
+    f"Yo @{user_name}, your energy is unmatched 😎🔥",
+    f"@{user_name}, you just unlocked epic mode 🎮✨",
+    f"OMG @{user_name}, peak chaos energy detected 😹💥",
+    f"@{user_name}, your aura is 100% iconic 😎✨",
+    f"@{user_name}, living rent-free in my hype thoughts 😏💫",
+    f"*slides into @{user_name}'s DMs with virtual cookies* 🍪",
+    f"@{user_name}, the vibe you bring is unmatched 😎🔥",
+    f"Yo @{user_name}, absolute internet legend detected 👀✨",
+    f"@{user_name}, send help… your energy is too strong 😹💥",
+    f"OMG @{user_name}, you just broke the hype scale 😎🔥",
+    f"@{user_name}, epic level: MAX 💯✨",
+    f"Sup @{user_name}? Chaos energy overload 😹💫",
+    f"@{user_name}, the mood you bring is immaculate 😎",
+    f"@{user_name}, just casually iconic as always ✨😏",
+    f"@{user_name}, sending legendary vibes only 💫🎮",
+    f"*points at @{user_name}* Yup, absolute icon right there 👀",
+    f"@{user_name}, living your best chaotic life 😹🔥"
+]
+
+# ------------------------------
+# PLAYFUL / CUTE / MEME 😺🐾
+# ------------------------------
+playful_responses = [
+    f"@{user_name}, you're purrfect! 😺",
+    f"Hey @{user_name}! *headbutts affectionately* 🐾",
+    f"*spams love at @{user_name}* ❤️❤️❤️",
+    f"@{user_name}, sending you virtual snacks 🍕🍩 stay awesome!",
+    f"*meows at @{user_name}* Notice me! 🐱",
+    f"@{user_name}, you deserve all the treats! 🐟",
+    f"Paws up, @{user_name}! You're awesome! 🐾",
+    f"@{user_name}, virtual hugs incoming 🤗💖",
+    f"@{user_name}, do you even sleep or just meme all day? 😹",
+    f"*throws glitter at @{user_name}* ✨✨ Shine on!",
+    f"@{user_name}, absolute icon vibes 😺🌈",
+    f"*high five @{user_name}* 🖐️ Legendary move!",
+    f"@{user_name}, sending emergency pizza 🍕🚨",
+    f"*snuggles @{user_name}* 🐾💖",
+    f"@{user_name}, you’re basically a walking meme 😹",
+    f"@{user_name}, catch these virtual treats 🐟✨",
+    f"@{user_name}, smile! 😸 You’re epic!",
+    f"*throws heart emojis at @{user_name}* ❤️💫",
+    f"@{user_name}, paws up! You rock! 🐾✨",
+    f"@{user_name}, notice meeee 😹🐱",
+    f"@{user_name}, peak cuteness achieved 😺💖",
+    f"*spins around @{user_name} in confetti* 🎉😸",
+    f"@{user_name}, sending cuddles 🤗✨",
+    f"@{user_name}, you literally slay 😹🔥",
+    f"*gives @{user_name} virtual cookies* 🍪💖",
+    f"@{user_name}, chaos but make it cute 😺✨",
+    f"*floof attack @{user_name}* 🐾💫",
+    f"@{user_name}, peak internet legend 😹🌈",
+    f"@{user_name}, sprinkle of love and memes ✨❤️"
+]
+
+# ------------------------------
+# FUNCTION TO GET RESPONSE
+# ------------------------------
+def get_response(user_name, category=None):
+    """
+    category: "sarcastic", "genz", "playful" or None for random
+    """
+    if category == "sarcastic":
+        return random.choice(sarcastic_responses)
+    elif category == "genz":
+        return random.choice(genz_responses)
+    elif category == "playful":
+        return random.choice(playful_responses)
+    else:
+        all_responses = sarcastic_responses + genz_responses + playful_responses
+        return random.choice(all_responses)
+
+# ------------------------------
+# EXAMPLES
+# ------------------------------
+user_name = "Nyra"
+print(get_response(user_name))            # random from all
+print(get_response(user_name, "sarcastic"))
+print(get_response(user_name, "genz"))
+print(get_response(user_name, "playful"))import random
+
+# ------------------------------
+# SARCASTIC RESPONSES 😏
+# ------------------------------
+sarcastic_responses = [
+    f"Oh wow @{user_name}, did you come up with that all by yourself? 😏",
+    f"Nice one @{user_name}, truly groundbreaking 🙄✨",
+    f"@{user_name}, stop flexing… JK keep flexing 💪😎",
+    f"Congrats @{user_name}, you’ve officially leveled up in sarcasm 😏🎮",
+    f"Oh look, it’s @{user_name}, the human chaos generator 😹🔥",
+    f"Wow @{user_name}, did anyone tell you you’re a legend today? No? Thought so 😏",
+    f"@{user_name}, chill, the spotlight isn’t going anywhere… oh wait, it’s all on you 😹",
+    f"@{user_name}, careful, too much awesomeness might break Discord 🫣",
+    f"@{user_name}, your memes are… suspiciously good 😼",
+    f"@{user_name}, stop being so extra… just kidding, keep it up 😹",
+    f"@{user_name}, you’re basically chaos incarnate 😏🔥",
+    f"Nice try @{user_name}, almost human-level brilliance 😏",
+    f"@{user_name}, I see you’ve mastered the art of attention 🙄✨",
+    f"@{user_name}, absolute icon but low-key savage 😎",
+    f"@{user_name}, did someone order extra chaos? Oh wait, that’s you 😹",
+    f"@{user_name}, legend level: sarcastic af 😏💥",
+    f"@{user_name}, your energy is… chaotic but we stan 😹",
+    f"Oh wow @{user_name}, another epic comment… shocking 🙄",
+    f"@{user_name}, you bring the drama and we’re here for it 😎🔥",
+    f"@{user_name}, the sarcasm is strong with this one 😏",
+    f"@{user_name}, peak human-level chaos achieved 😹",
+    f"@{user_name}, please stop breaking the vibe with your awesomeness 😏",
+    f"@{user_name}, did someone call for iconic energy? Here you are 😹",
+    f"@{user_name}, attention hog certified 😎",
+    f"@{user_name}, the absolute legend who can’t be tamed 😏"
+]
+
+# ------------------------------
+# GEN Z / HYPE RESPONSES 😎✨
+# ------------------------------
+genz_responses = [
+    f"OMG @{user_name}, you’re literally the vibe 😎✨",
+    f"@{user_name}, sending you big brain energy 💡🧠",
+    f"Yo @{user_name}, you just leveled up IRL 🎮✨",
+    f"Sup @{user_name}? You’re basically iconic 😎✨",
+    f"@{user_name}, absolute chaos energy but we love it 😹🔥",
+    f"*throws confetti at @{user_name}* 🎉🎉 You rock!",
+    f"@{user_name}, I stan a legend 🫡💖",
+    f"Hey @{user_name}, keep slaying! 💅✨",
+    f"@{user_name}, you’re a whole mood 😎🌈",
+    f"*high fives @{user_name}* 🖐️ Legendary move!",
+    f"@{user_name}, catch these good vibes only ✌️💫",
+    f"@{user_name}, sending you virtual snacks 🍕🍩 stay awesome!",
+    f"Yo @{user_name}, your energy is unmatched 😎🔥",
+    f"@{user_name}, you just unlocked epic mode 🎮✨",
+    f"OMG @{user_name}, peak chaos energy detected 😹💥",
+    f"@{user_name}, your aura is 100% iconic 😎✨",
+    f"@{user_name}, living rent-free in my hype thoughts 😏💫",
+    f"*slides into @{user_name}'s DMs with virtual cookies* 🍪",
+    f"@{user_name}, the vibe you bring is unmatched 😎🔥",
+    f"Yo @{user_name}, absolute internet legend detected 👀✨",
+    f"@{user_name}, send help… your energy is too strong 😹💥",
+    f"OMG @{user_name}, you just broke the hype scale 😎🔥",
+    f"@{user_name}, epic level: MAX 💯✨",
+    f"Sup @{user_name}? Chaos energy overload 😹💫",
+    f"@{user_name}, the mood you bring is immaculate 😎",
+    f"@{user_name}, just casually iconic as always ✨😏",
+    f"@{user_name}, sending legendary vibes only 💫🎮",
+    f"*points at @{user_name}* Yup, absolute icon right there 👀",
+    f"@{user_name}, living your best chaotic life 😹🔥"
+]
+
+# ------------------------------
+# PLAYFUL / CUTE / MEME 😺🐾
+# ------------------------------
+playful_responses = [
+    f"@{user_name}, you're purrfect! 😺",
+    f"Hey @{user_name}! *headbutts affectionately* 🐾",
+    f"*spams love at @{user_name}* ❤️❤️❤️",
+    f"@{user_name}, sending you virtual snacks 🍕🍩 stay awesome!",
+    f"*meows at @{user_name}* Notice me! 🐱",
+    f"@{user_name}, you deserve all the treats! 🐟",
+    f"Paws up, @{user_name}! You're awesome! 🐾",
+    f"@{user_name}, virtual hugs incoming 🤗💖",
+    f"@{user_name}, do you even sleep or just meme all day? 😹",
+    f"*throws glitter at @{user_name}* ✨✨ Shine on!",
+    f"@{user_name}, absolute icon vibes 😺🌈",
+    f"*high five @{user_name}* 🖐️ Legendary move!",
+    f"@{user_name}, sending emergency pizza 🍕🚨",
+    f"*snuggles @{user_name}* 🐾💖",
+    f"@{user_name}, you’re basically a walking meme 😹",
+    f"@{user_name}, catch these virtual treats 🐟✨",
+    f"@{user_name}, smile! 😸 You’re epic!",
+    f"*throws heart emojis at @{user_name}* ❤️💫",
+    f"@{user_name}, paws up! You rock! 🐾✨",
+    f"@{user_name}, notice meeee 😹🐱",
+    f"@{user_name}, peak cuteness achieved 😺💖",
+    f"*spins around @{user_name} in confetti* 🎉😸",
+    f"@{user_name}, sending cuddles 🤗✨",
+    f"@{user_name}, you literally slay 😹🔥",
+    f"*gives @{user_name} virtual cookies* 🍪💖",
+    f"@{user_name}, chaos but make it cute 😺✨",
+    f"*floof attack @{user_name}* 🐾💫",
+    f"@{user_name}, peak internet legend 😹🌈",
+    f"@{user_name}, sprinkle of love and memes ✨❤️"
+]
+
+# ------------------------------
+# FUNCTION TO GET RESPONSE
+# ------------------------------
+def get_response(user_name, category=None):
+    """
+    category: "sarcastic", "genz", "playful" or None for random
+    """
+    if category == "sarcastic":
+        return random.choice(sarcastic_responses)
+    elif category == "genz":
+        return random.choice(genz_responses)
+    elif category == "playful":
+        return random.choice(playful_responses)
+    else:
+        all_responses = sarcastic_responses + genz_responses + playful_responses
+        return random.choice(all_responses)
+
+# ------------------------------
+# EXAMPLES
+# ------------------------------
+user_name = "Nyra"
+print(get_response(user_name))            # random from all
+print(get_response(user_name, "sarcastic"))
+print(get_response(user_name, "genz"))
+print(get_response(user_name, "playful"))
                     await message.channel.send(random.choice(personal_responses))
                     responded = True
         except Exception as e:
