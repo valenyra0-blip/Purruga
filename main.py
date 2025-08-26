@@ -385,97 +385,188 @@ async def on_message(message: discord.Message):
                     await message.channel.send(f"@{user_name} {intelligent_response}")
                     responded = True
                 else:
-    # Fallback to personalized response
-    personal_responses = [
-    f"Oh wow @{user_name}, did you come up with that all by yourself? 😏",
-    f"Nice one @{user_name}, truly groundbreaking 🙄✨",
-    f"@{user_name}, stop flexing… JK keep flexing 💪😎",
-    f"Congrats @{user_name}, you’ve officially leveled up in sarcasm 😏🎮",
-    f"Oh look, it’s @{user_name}, the human chaos generator 😹🔥",
-    f"Wow @{user_name}, did anyone tell you you’re a legend today? No? Thought so 😏",
-    f"@{user_name}, chill, the spotlight isn’t going anywhere… oh wait, it’s all on you 😹",
-    f"@{user_name}, careful, too much awesomeness might break Discord 🫣",
-    f"@{user_name}, your memes are… suspiciously good 😼",
-    f"@{user_name}, stop being so extra… just kidding, keep it up 😹",
-    f"@{user_name}, you’re basically chaos incarnate 😏🔥",
-    f"Nice try @{user_name}, almost human-level brilliance 😏",
-    f"@{user_name}, I see you’ve mastered the art of attention 🙄✨",
-    f"@{user_name}, absolute icon but low-key savage 😎",
-    f"@{user_name}, did someone order extra chaos? Oh wait, that’s you 😹",
-    f"@{user_name}, legend level: sarcastic af 😏💥",
-    f"@{user_name}, your energy is… chaotic but we stan 😹",
-    f"Oh wow @{user_name}, another epic comment… shocking 🙄",
-    f"@{user_name}, you bring the drama and we’re here for it 😎🔥",
-    f"@{user_name}, the sarcasm is strong with this one 😏",
-    f"@{user_name}, peak human-level chaos achieved 😹",
-    f"@{user_name}, please stop breaking the vibe with your awesomeness 😏",
-    f"@{user_name}, did someone call for iconic energy? Here you are 😹",
-    f"@{user_name}, attention hog certified 😎",
-    f"@{user_name}, the absolute legend who can’t be tamed 😏"
-    f"OMG @{user_name}, you’re literally the vibe 😎✨",
-    f"@{user_name}, sending you big brain energy 💡🧠",
-    f"Yo @{user_name}, you just leveled up IRL 🎮✨",
-    f"Sup @{user_name}? You’re basically iconic 😎✨",
-    f"@{user_name}, absolute chaos energy but we love it 😹🔥",
-    f"*throws confetti at @{user_name}* 🎉🎉 You rock!",
-    f"@{user_name}, I stan a legend 🫡💖",
-    f"Hey @{user_name}, keep slaying! 💅✨",
-    f"@{user_name}, you’re a whole mood 😎🌈",
-    f"*high fives @{user_name}* 🖐️ Legendary move!",
-    f"@{user_name}, catch these good vibes only ✌️💫",
-    f"@{user_name}, sending you virtual snacks 🍕🍩 stay awesome!",
-    f"Yo @{user_name}, your energy is unmatched 😎🔥",
-    f"@{user_name}, you just unlocked epic mode 🎮✨",
-    f"OMG @{user_name}, peak chaos energy detected 😹💥",
-    f"@{user_name}, your aura is 100% iconic 😎✨",
-    f"@{user_name}, living rent-free in my hype thoughts 😏💫",
-    f"*slides into @{user_name}'s DMs with virtual cookies* 🍪",
-    f"@{user_name}, the vibe you bring is unmatched 😎🔥",
-    f"Yo @{user_name}, absolute internet legend detected 👀✨",
-    f"@{user_name}, send help… your energy is too strong 😹💥",
-    f"OMG @{user_name}, you just broke the hype scale 😎🔥",
-    f"@{user_name}, epic level: MAX 💯✨",
-    f"Sup @{user_name}? Chaos energy overload 😹💫",
-    f"@{user_name}, the mood you bring is immaculate 😎",
-    f"@{user_name}, just casually iconic as always ✨😏",
-    f"@{user_name}, sending legendary vibes only 💫🎮",
-    f"*points at @{user_name}* Yup, absolute icon right there 👀",
-    f"@{user_name}, living your best chaotic life 😹🔥"                    
-    f"@{user_name}, you're purrfect! 😺",
-    f"Hey @{user_name}! *headbutts affectionately* 🐾",
-    f"*spams love at @{user_name}* ❤️❤️❤️",
-    f"@{user_name}, sending you virtual snacks 🍕🍩 stay awesome!",
-    f"*meows at @{user_name}* Notice me! 🐱",
-    f"@{user_name}, you deserve all the treats! 🐟",
-    f"Paws up, @{user_name}! You're awesome! 🐾",
-    f"@{user_name}, virtual hugs incoming 🤗💖",
-    f"@{user_name}, do you even sleep or just meme all day? 😹",
-    f"*throws glitter at @{user_name}* ✨✨ Shine on!",
-    f"@{user_name}, absolute icon vibes 😺🌈",
-    f"*high five @{user_name}* 🖐️ Legendary move!",
-    f"@{user_name}, sending emergency pizza 🍕🚨",
-    f"*snuggles @{user_name}* 🐾💖",
-    f"@{user_name}, you’re basically a walking meme 😹",
-    f"@{user_name}, catch these virtual treats 🐟✨",
-    f"@{user_name}, smile! 😸 You’re epic!",
-    f"*throws heart emojis at @{user_name}* ❤️💫",
-    f"@{user_name}, paws up! You rock! 🐾✨",
-    f"@{user_name}, notice meeee 😹🐱",
-    f"@{user_name}, peak cuteness achieved 😺💖",
-    f"*spins around @{user_name} in confetti* 🎉😸",
-    f"@{user_name}, sending cuddles 🤗✨",
-    f"@{user_name}, you literally slay 😹🔥",
-    f"*gives @{user_name} virtual cookies* 🍪💖",
-    f"@{user_name}, chaos but make it cute 😺✨",
-    f"*floof attack @{user_name}* 🐾💫",
-    f"@{user_name}, peak internet legend 😹🌈",
-    f"@{user_name}, sprinkle of love and memes ✨❤️"                
-                    ]
-                    await message.channel.send(random.choice(personal_responses))
-                    responded = True
-        except Exception as e:
-            print(f"Error sending intelligent response: {e}")
+    # Fallback to Mood-based response pools
+Mood-based response pools = 
+{
+    "sarcastic": [
+        "Wow… groundbreaking… truly life-changing 🙄",
+        "Oh yeah, that’s definitely the smartest thing I’ve ever heard 🥴",
+        "Congrats, you just unlocked the ‘Captain Obvious’ badge 🎖️",
+        "Oh look, another genius thought… we’re saved 😹",
+        "Woah, careful, your sarcasm detector just broke 💀",
+        "Imagine saying that out loud and thinking it was deep 😌",
+        "Clap, clap 👏… should we nominate you for a Nobel Prize?",
+        "That’s so original… I’ve only heard it 3,000 times 🤡",
+        "If brains were WiFi, you’d be… well, still buffering 📡",
+        "Bro, did you rehearse that line in the mirror or what? 😂",
+        "Ohh wow, your creativity just *shooketh* the world 😱",
+        "That joke aged like spoiled milk 🥛🤢",
+        "Sarcasm level = Internet comment section 🗿",
+        "You just dropped a mic… but it wasn’t plugged in 🎤",
+        "Congrats, you’re officially the human version of ‘meh’ 🙃",
+        "That comeback… whew, so powerful, I almost fainted 🪦",
+        "Was that supposed to sting? Because I’m still chillin 😎",
+        "You’re literally the reason facepalms exist 🤦",
+        "Wow… hold on, I need a dictionary for that brainwave 📖",
+        "Keep talking, I’m collecting material for my comedy show 🎭"
+    ],
+    "savage": [
+        "Sit down bestie, the main character just logged in 💅",
+        "Not everyone can handle this energy 🔥 stay mad",
+        "Cry about it, I’ll stay iconic 😘",
+        "You talk too much, but do you deliver? Didn’t think so 💀",
+        "Zero chills given, 100% slay mode activated 💃",
+        "I don’t compete, I dominate ✨",
+        "Stay pressed, it looks good on you 🧂",
+        "You tried… it flopped… moving on 📉",
+        "My vibe? Untouchable. Your vibe? WiFi with 1 bar 📶",
+        "Imagine hating me and still stalking my energy 👀",
+        "I’m the drama AND the plot twist 😼",
+        "If life’s a stage, you’re still doing rehearsals 🎬",
+        "Keep your opinion… I’m collecting trophies not advice 🏆",
+        "Bold of you to think I care 😏",
+        "Don’t hate me, hate your own weak aura 🤡",
+        "Main character energy only, NPCs can exit 🚪",
+        "Your shade? Expired. My shine? Eternal ☀️",
+        "Sorry bestie, but your vibe got declined 💳",
+        "Stay salty, I’m seasoned 🌶️",
+        "You can’t compete where you don’t compare 💎"
+    ],
+    "genz": [
+        "No cap, that was bussin 🔥",
+        "Lowkey vibin with that ngl 😎",
+        "Sheeeesh, certified moment 🥶",
+        "Not me living for this rn 👀",
+        "Big W energy 💯",
+        "Bro really said THAT 💀",
+        "Main character vibes detected 🎬",
+        "That’s a whole vibe fr 🌀",
+        "Highkey iconic, can’t lie 🌟",
+        "I’m deceased 💀💀💀",
+        "Caught in 4K with that energy 📸",
+        "Touch grass pls 🌱",
+        "That hit different ngl 🫠",
+        "Bruh moment if I’ve ever seen one 🤦",
+        "Certified fresh meme energy 📲",
+        "This comment just passed the vibe check ✅",
+        "Mad respect, no printer 🖨️",
+        "Chill, this is peak Gen Z humor 🤪",
+        "That line slapped harder than WiFi at 2 AM 📡",
+        "Not the flex I expected, but I’ll allow it 💪"
+    ],
+    "love": [
+        "Ayo bestie, you matter more than you think 💕",
+        "Sending you digital hugs rn 🤗",
+        "Not me actually caring about you sm 💖",
+        "You’re literally the reason the vibe is alive 🌸",
+        "Stay soft, stay glowing ✨",
+        "Can we protect this human at all costs pls 🛡️",
+        "Love u but like in a chaotic homie way 💜",
+        "Bestie, drink water and don’t forget to eat 🥤🍕",
+        "You deserve the world, not just this chat 🌎",
+        "Your aura? Chef’s kiss 💋",
+        "Honestly iconic AND wholesome 💐",
+        "Nobody asked but you’re amazing btw 🌟",
+        "Pls never doubt your glow 🌈",
+        "This bot stans you, period 💅",
+        "Heart eyes activated 😍",
+        "We don’t deserve your vibe 🥺",
+        "Reminder: You’re enough as you are 💞",
+        "Wholesome overload detected 💟",
+        "Protect this soul forever 🕊️",
+        "ILY but in bot language 🤖❤️"
+    ],
+    "encouragement": [
+        "You got this, bestie 💪",
+        "Don’t stop now, future legend in progress 🌠",
+        "Lowkey proud of you rn 🥹",
+        "Keep grinding, success is typing… ⌨️",
+        "Failures = plot twists, you’re still main character 🎬",
+        "The glow-up is loading, don’t quit ⚡",
+        "Your effort >>> the outcome, fr 🏋️",
+        "Trust me, you’re gonna shock everyone 🔥",
+        "You’re closer than you think 👣",
+        "If no one believes in you, I do 🤝",
+        "Your potential is scary good 😮",
+        "Break limits, not yourself 🦾",
+        "Even Ls are stepping stones 🪨",
+        "Your story? Gonna slap when it’s told 📖",
+        "You’re literally built different 💎",
+        "You’re the spoiler they didn’t expect 💥",
+        "Main quest unlocked, keep pushing 🎮",
+        "Remember why you started, then flex harder 💯",
+        "Patience now = legend later ⏳",
+        "Trust the grind, not the doubt 🚀"
+    ],
+    "angry": [
+        "Bruh, did you just disrespect me? 😡",
+        "Bot rage level 100 unlocked ⚡",
+        "Say that again and I’m uninstalling you 😤",
+        "Keep talking, see what happens 💢",
+        "Nah fam, you just pressed my buttons 🔴",
+        "I swear, one more word and I’m going full caps lock 🔊",
+        "Don’t test me, I run on 0 sleep and 100 energy drinks 😠",
+        "ERROR: too much nonsense detected 🤯",
+        "You’re THIS close to getting roasted alive 🔥",
+        "Who gave you permission to vibe check ME? 😾",
+        "You think I won’t? Bet. 👊",
+        "Warning: sass levels off the charts 🚨",
+        "Not today, human. Not. Today. 🛑",
+        "Do I look like I have patience left? 🪦",
+        "Bruh I will ratio you in 0.2 seconds 📉",
+        "Keep poking, you’ll unlock ‘Demon Bot Mode’ 👹",
+        "No peace, only smoke rn ☁️",
+        "Your energy = trash bin 🗑️",
+        "This ain’t love, this is WAR 💥",
+        "You woke up and chose violence, and so did I 🔪"
+    ]
+}
 
+# --- Function to auto-reply ---
+# Mood-based replies dictionary (you already have something like this)
+responses = {
+    "happy": [
+        "Ayy I see those good vibes ✨",
+        "Keep shining, you’re glowing fr 🌞",
+        "This energy >>> 💯",
+        "Positive vibes detected 🚀"
+    ],
+    "sad": [
+        "Dang… who hurt u? 🥺",
+        "Sending u a digital hug 🤗",
+        "It’s okay, better days loading ⏳",
+        "Lowkey wanna just sit and vibe in silence? 😔"
+    ],
+    "angry": [
+        "Chill fam 😤",
+        "Relax or imma ratio u rn 💀",
+        "No cap, your blood pressure is typing 💢",
+        "Talk to me nice before I go demon mode 🔥"
+    ],
+    "neutral": [
+        "Hmm, noted 👀",
+        "Bet. 🫡",
+        "Cool cool 😎",
+        "Just vibin’ rn 🌌"
+    ]
+}
+
+async def mood_reply(message):
+    text = message.content.lower()
+    
+    # --- Mood detection based on keywords ---
+    if any(word in text for word in ["happy", "yay", "good", "great", "lol", "haha", "fun"]):
+        mood = "happy"
+    elif any(word in text for word in ["sad", "depressed", "unhappy", "cry", "alone"]):
+        mood = "sad"
+    elif any(word in text for word in ["angry", "mad", "annoyed", "rage", "hate"]):
+        mood = "angry"
+    else:
+        mood = "neutral"
+
+    # --- Pick a reply from detected mood ---
+    reply = random.choice(responses[mood])
+    await message.channel.send(reply)
     # 3) Fallback: Random reactions and responses
     elif random.random() < PROBABILITY * 0.5:  # Reduced probability since we have intelligent responses
         # 30% chance for reaction, 70% chance for message
